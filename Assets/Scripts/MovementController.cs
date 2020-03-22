@@ -11,10 +11,14 @@ public class MovementController : MonoBehaviour
     private Rigidbody2D m_body;
 
     private bool isFirstClick = false;
+    private float curSpeed;
+    private float curMaxSpeed;
 
     private void Start()
     {
         m_body = GetComponent<Rigidbody2D>();
+        curSpeed = m_speed;
+        curMaxSpeed = maxSpeed;
     }
 
     private void FixedUpdate()
@@ -63,7 +67,7 @@ public class MovementController : MonoBehaviour
             mousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
             Vector2 dirVector = (mousePosition - this.transform.position).normalized;
             //accélération
-            curForce += (dirVector * m_speed) * Time.deltaTime;
+            curForce += (dirVector * curSpeed) * Time.deltaTime;
         }
         m_body.velocity += curForce;
     }
@@ -78,17 +82,24 @@ public class MovementController : MonoBehaviour
             mousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
             Vector2 dirVector = (mousePosition - this.transform.position).normalized;
             //accélération
-            curForce = (dirVector * m_speed) * Time.deltaTime;
+            curForce = (dirVector * curSpeed) * Time.deltaTime;
         }
         m_body.velocity += curForce;
     }
 
     private void ClampVelocity()
     {
-        if(m_body.velocity.magnitude >= maxSpeed)
+        if(m_body.velocity.magnitude >= curMaxSpeed)
         {
-            m_body.velocity = Vector2.ClampMagnitude(m_body.velocity, maxSpeed);
+            m_body.velocity = Vector2.ClampMagnitude(m_body.velocity, curMaxSpeed);
         }
+    }
+
+    public void ChangeSpeed(float curScaleMagnitude)
+    {
+        float baseScaleMagnitude = CameraManager.Instance.BaseScaleMagnitude;
+        curSpeed = (curScaleMagnitude * m_speed) / baseScaleMagnitude;
+        curMaxSpeed = (curScaleMagnitude * maxSpeed) / baseScaleMagnitude;
     }
 
     public Vector2 PositionWithVelocity

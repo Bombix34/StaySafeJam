@@ -9,7 +9,7 @@ public class EyeMove : MonoBehaviour
 
     private void Start()
     {
-        movement = GetComponentInParent<MovementController>();    
+        movement = GetComponentInParent<MovementController>();
     }
 
     private void Update()
