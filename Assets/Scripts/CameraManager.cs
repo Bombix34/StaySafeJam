@@ -22,16 +22,31 @@ public class CameraManager : Singleton<CameraManager>
     {
         if(m_camera.orthographicSize<sizeToSet)
         {
-            m_camera.orthographicSize += Time.deltaTime * speedCam ;
+            m_camera.orthographicSize += Time.deltaTime * PlayerManager.instance.GetAdaptedValue(speedCam);
         }
         else if (m_camera.orthographicSize > sizeToSet)
         {
-            m_camera.orthographicSize -= Time.deltaTime * speedCam;
+            m_camera.orthographicSize -= Time.deltaTime * PlayerManager.instance.GetAdaptedValue(speedCam);
         }
     }
 
     public void ChangeSize(float curScaleMagnitude)
     {
-        sizeToSet = (curScaleMagnitude * initCamSize) / BaseScaleMagnitude;
+        sizeToSet = PlayerManager.instance.GetAdaptedValue(initCamSize);
+    }
+
+    public void ForceDecreaseOrthographicSize(float endVal, float speed)
+    {
+        StartCoroutine(ForceSize(endVal, speed));
+    }
+
+    private IEnumerator ForceSize(float endVal, float speed)
+    {
+        while(m_camera.orthographicSize>endVal)
+        {
+            m_camera.orthographicSize -= Time.deltaTime * speed;
+            yield return null;
+        }
+        m_camera.orthographicSize = endVal;
     }
 }

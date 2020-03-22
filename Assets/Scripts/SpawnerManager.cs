@@ -2,10 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerManager : MonoBehaviour
+public class SpawnerManager : Singleton<SpawnerManager>
 {
     public Transform player;
+    public GameObject cellPrefab;
+    public Vector2 timeBetweenSpawn;
+    private float curChrono;
 
+    private List<GameObject> currentCells;
+
+    private void Start()
+    {
+        currentCells = new List<GameObject>();
+        curChrono = Random.Range(timeBetweenSpawn.x, timeBetweenSpawn.y);
+    }
+
+    private void Update()
+    {
+        if(curChrono>0)
+        {
+            curChrono -= Time.deltaTime;
+        }
+        else
+        {
+            curChrono = Random.Range(timeBetweenSpawn.x, timeBetweenSpawn.y);
+            SpawnCell();
+        }
+    }
+
+    private void SpawnCell()
+    {
+        GameObject newCell = Instantiate(cellPrefab, GetPointOutOfBounds(), Quaternion.identity, this.transform);
+        currentCells.Add(newCell);
+        float playerScale = player.transform.localScale.x;
+        float randScale = Random.Range(Mathf.Clamp(playerScale - 10f,0f,playerScale), playerScale -0.2f);
+        newCell.transform.localScale = new Vector3(randScale,randScale,randScale);
+    }
 
     private Vector3 GetPointOutOfBounds()
     {
@@ -42,5 +74,18 @@ public class SpawnerManager : MonoBehaviour
             randomPosY = player.position.y - height;
         }
         return new Vector3(randomPosX,randomPosY,0f);
+    }
+
+    public void ClearCells()
+    {
+        foreach(var item in currentCells)
+        {
+            Destroy(item.gameObject);
+        }
+    }
+
+    public List<GameObject> CurrentCells
+    {
+        get => currentCells;
     }
 }

@@ -6,7 +6,7 @@ public class MovementController : MonoBehaviour
 {
     public bool needClickToMove = true;
 
-    public int m_speed=1;
+    public float m_speed=1;
     public float maxSpeed = 10f;
     private Rigidbody2D m_body;
 
@@ -97,9 +97,13 @@ public class MovementController : MonoBehaviour
 
     public void ChangeSpeed(float curScaleMagnitude)
     {
-        float baseScaleMagnitude = CameraManager.Instance.BaseScaleMagnitude;
-        curSpeed = (curScaleMagnitude * m_speed) / baseScaleMagnitude;
-        curMaxSpeed = (curScaleMagnitude * maxSpeed) / baseScaleMagnitude;
+        curSpeed = PlayerManager.Instance.GetAdaptedValue(m_speed);
+        curMaxSpeed = PlayerManager.Instance.GetAdaptedValue(maxSpeed);
+    }
+
+    public void ResetVelocity()
+    {
+        m_body.velocity = Vector2.zero;
     }
 
     public Vector2 PositionWithVelocity
