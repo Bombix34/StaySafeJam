@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalVolume: {fileID: 0}
   fxSpeed: 4
-  maxFlash: 2
+  maxFlash: 1
 --- !u!114 &2341660086804995882
 MonoBehaviour:
   m_ObjectHideFlags: 0
