@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class EyeMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private MovementController movement;
+    public int speed = 1;
+
+    private void Start()
     {
-        
+        movement = GetComponentInParent<MovementController>();    
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Vector2 cursorPos = Camera.main.WorldToScreenPoint(Input.mousePosition) - transform.position;
-        transform.up = cursorPos;
+        Vector3 vectorToTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        vectorToTarget = new Vector3(vectorToTarget.x, vectorToTarget.y, 0f).normalized;
+        if (movement.PositionWithVelocity.magnitude!=0)
+        {
+            vectorToTarget = (movement.PositionWithVelocity - (Vector2)this.transform.position).normalized;
+        }
+        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
     }
 }
