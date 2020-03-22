@@ -4,19 +4,18 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class Distorsion : MonoBehaviour
+public class ChromaticFX : MonoBehaviour
 {
     public float multiplyFx = 0.05f;
     public GameObject globalVolume;
 
     Volume volume;
-    LensDistortion distorsionLayer = null;
-    float baseValue;
+    ChromaticAberration chromaticLayer = null;
 
-    public void Distortion()
+    public void Chroma()
     {
         volume = globalVolume.GetComponent<Volume>();
-        volume.profile.TryGet(out distorsionLayer);
-        distorsionLayer.intensity.value -= multiplyFx;
+        volume.profile.TryGet(out chromaticLayer);
+        chromaticLayer.intensity.value += multiplyFx;
     }
 }

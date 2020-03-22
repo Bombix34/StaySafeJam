@@ -4,19 +4,18 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class Distorsion : MonoBehaviour
+public class GrainFX : MonoBehaviour
 {
     public float multiplyFx = 0.05f;
     public GameObject globalVolume;
 
     Volume volume;
-    LensDistortion distorsionLayer = null;
-    float baseValue;
+    FilmGrain grainLayer = null;
 
-    public void Distortion()
+    public void Grain()
     {
         volume = globalVolume.GetComponent<Volume>();
-        volume.profile.TryGet(out distorsionLayer);
-        distorsionLayer.intensity.value -= multiplyFx;
+        volume.profile.TryGet(out grainLayer);
+        grainLayer.intensity.value += multiplyFx;
     }
 }
