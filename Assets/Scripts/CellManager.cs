@@ -6,6 +6,7 @@ using DG.Tweening;
 public class CellManager : MonoBehaviour
 {
     public float initSizeSpeed = 1f;
+    public SpriteRenderer[] spritesList;
     private CellType cellType;
 
     [SerializeField]
@@ -40,18 +41,23 @@ public class CellManager : MonoBehaviour
         switch (cellType)
         {
             case CellType.neutral:
+                sprite.sprite = spritesList[0].sprite;
                 sprite.color = Color.white;
                 break;
             case CellType.neutralGrow:
+                sprite.sprite = spritesList[1].sprite;
                 sprite.color = Color.grey;
                 break;
             case CellType.shrink:
+                sprite.sprite = spritesList[2].sprite;
                 sprite.color = new Color(0.6f, 0.1f, 0f);
                 break;
             case CellType.sound:
+                sprite.sprite = spritesList[3].sprite;
                 sprite.color = new Color(0.8f, 0f, 0.4f);
                 break;
             case CellType.visual:
+                sprite.sprite = spritesList[4].sprite;
                 sprite.color = new Color(0f, 0.2f, 0.8f);
                 break;
         }
