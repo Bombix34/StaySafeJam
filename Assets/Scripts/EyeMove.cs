@@ -23,6 +23,5 @@ public class EyeMove : MonoBehaviour
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-        //transform.rotation = Quaternion.Euler(0f, 0f, (transform.rotation.eulerAngles.z%360));
     }
 }
