@@ -40,6 +40,7 @@ public class EatManager : MonoBehaviour
         animSequence.Append(eater.transform.DOScale(finalScale, speedScale ).OnComplete(() => { Destroy(eaten); }));
         if(eater.CompareTag("Player"))
         {
+            eater.GetComponent<PlayerManager>().CurrentSize = finalScale.magnitude;
             Camera.main.GetComponent<CameraManager>().ChangeSize(finalScale.magnitude);
             eater.GetComponent<MovementController>().ChangeSpeed(finalScale.magnitude);
         }
