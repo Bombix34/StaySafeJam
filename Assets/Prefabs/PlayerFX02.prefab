@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4061236357379750690}
   - component: {fileID: 5878262787984558105}
   m_Layer: 0
-  m_Name: PlayerFX01
+  m_Name: PlayerFX02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -168,7 +168,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 6
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.69
+      value: 0.14
       mode: 0
       spread: 0
       speed:
@@ -918,7 +918,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 50
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -983,15 +983,15 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 1
-          inSlope: -2.3121698
-          outSlope: -2.3121698
+          inSlope: -0.8653656
+          outSlope: -0.8653656
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.122806996
+          outWeight: 0.18546364
         - serializedVersion: 3
           time: 1
-          value: 0.16667175
+          value: 0.53704834
           inSlope: -0.12014437
           outSlope: -0.12014437
           tangentMode: 0
@@ -2783,8 +2783,8 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
-    damping: 1
+    frequency: 0.6
+    damping: 0
     octaves: 1
     octaveMultiplier: 0.5
     octaveScale: 2
@@ -2792,7 +2792,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4709,8 +4709,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 784a8d5a179dcc847bdf38a0d37bb0be, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 46511be4a0590d143af5bd34d17ab574, type: 2}
+  - {fileID: 2100000, guid: 46511be4a0590d143af5bd34d17ab574, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4730,7 +4730,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
