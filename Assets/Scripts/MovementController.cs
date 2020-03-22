@@ -110,4 +110,9 @@ public class MovementController : MonoBehaviour
     {
         get=>(Vector2)this.transform.position + (m_body.velocity*1.4f);
     }
+
+    public float CurSpeed
+    {
+        get => curSpeed;
+    }
 }

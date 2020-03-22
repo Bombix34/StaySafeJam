@@ -37,6 +37,7 @@ public class SpawnerManager : Singleton<SpawnerManager>
         float playerScale = player.transform.localScale.x;
         float randScale = Random.Range(Mathf.Clamp(playerScale - PlayerManager.Instance.GetAdaptedValue(10f),0f,playerScale), playerScale);
         newCell.GetComponent<CellManager>().InitScale(randScale,1.2f);
+        newCell.GetComponent<CellManager>().InitVelocity();
     }
 
     private Vector3 GetPointOutOfBounds()
@@ -44,7 +45,7 @@ public class SpawnerManager : Singleton<SpawnerManager>
         Vector2 playerPos = player.position;
         Camera curCamera = Camera.main;
         float height = curCamera.orthographicSize + 2;
-        float width = curCamera.orthographicSize * curCamera.aspect + 2;
+        float width = curCamera.orthographicSize * (curCamera.aspect + 2);
         float randomPosX = 0f;
         float randomPosY=0f;
         int randVal = (int)Random.Range(0f, 3.999999f);
