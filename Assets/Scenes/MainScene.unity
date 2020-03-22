@@ -436,7 +436,7 @@ PrefabInstance:
     - target: {fileID: 2573139740142126377, guid: e82651cb37b1041e0a595cd78d56685f,
         type: 3}
       propertyPath: onPlayerEatCellEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2573139740142126377, guid: e82651cb37b1041e0a595cd78d56685f,
         type: 3}

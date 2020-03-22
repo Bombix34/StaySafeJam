@@ -18,6 +18,7 @@ public class EatManager : MonoBehaviour
             Camera.main.GetComponent<CameraManager>().BaseScaleMagnitude = this.transform.localScale.magnitude;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Cell")|| collision.gameObject.CompareTag("Player"))
@@ -36,7 +37,7 @@ public class EatManager : MonoBehaviour
     private void AbsorbOtherCell(GameObject eater, GameObject eaten)
     {
         Rigidbody2D other = eaten.GetComponent<Rigidbody2D>();
-        Vector3 finalScale = eater.transform.localScale + (eaten.transform.localScale*0.5f);
+        Vector3 finalScale = eater.transform.localScale + (eaten.transform.localScale*0.15f);
         if ((finalScale.magnitude >= 150)&& (eater.CompareTag("Player")))
         {
             CameraManager.Instance.ForceDecreaseOrthographicSize(6f, PlayerManager.Instance.GetAdaptedValue(CameraManager.Instance.speedCam));
