@@ -12,4 +12,9 @@ public class PlayerManager : Singleton<PlayerManager>
         BaseSize = this.transform.localScale.magnitude;
         CurrentSize = BaseSize;
     }
+
+    public float GetAdaptedValue(float baseValue)
+    {
+        return (CurrentSize * baseValue) / BaseSize;
+    }
 }

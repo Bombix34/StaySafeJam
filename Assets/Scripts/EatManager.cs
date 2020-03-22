@@ -34,15 +34,28 @@ public class EatManager : MonoBehaviour
     {
         Rigidbody2D other = eaten.GetComponent<Rigidbody2D>();
         Vector3 finalScale = eater.transform.localScale + eaten.transform.localScale;
+        if ((finalScale.magnitude >= 150)&& (eater.CompareTag("Player")))
+        {
+            CameraManager.Instance.ForceDecreaseOrthographicSize(6f, PlayerManager.Instance.GetAdaptedValue(CameraManager.Instance.speedCam));
+            finalScale = Vector3.ClampMagnitude(finalScale, 0.8f);
+            SpawnerManager.Instance.ClearCells();
+        }
         other.DOMove(eater.transform.position, speedEat);
         eaten.transform.DOScale(Vector3.zero, speedScale);
+        eaten.GetComponent<MovementController>()?.ResetVelocity();
         Sequence animSequence = DOTween.Sequence();
         animSequence.Append(eater.transform.DOScale(finalScale, speedScale ).OnComplete(() => { Destroy(eaten); }));
+        SpawnerManager.Instance.CurrentCells.Remove(eaten);
         if(eater.CompareTag("Player"))
         {
             eater.GetComponent<PlayerManager>().CurrentSize = finalScale.magnitude;
             Camera.main.GetComponent<CameraManager>().ChangeSize(finalScale.magnitude);
             eater.GetComponent<MovementController>().ChangeSpeed(finalScale.magnitude);
+        }
+        else if(eaten.CompareTag("Player"))
+        {
+            eaten.GetComponent<CameraFollow>().enabled = false;
+            eater.AddComponent<CameraFollow>();
         }
     }
 }
