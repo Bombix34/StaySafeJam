@@ -10,6 +10,8 @@ public class MovementController : MonoBehaviour
     public float maxSpeed = 10f;
     private Rigidbody2D m_body;
 
+    private bool isFirstClick = false;
+
     private void Start()
     {
         m_body = GetComponent<Rigidbody2D>();
@@ -17,9 +19,27 @@ public class MovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        StartMovement();
+        if(!isFirstClick)
+        {
+            return;
+        }
         UpdateMovement();
         ClampVelocity();
     }
+
+    private void StartMovement()
+    {
+        if(isFirstClick || needClickToMove)
+        {
+            return;
+        }
+        if (Input.GetMouseButton(0))
+        {
+            isFirstClick = true;
+        }
+    }
+
 
     private void UpdateMovement()
     {
@@ -50,11 +70,16 @@ public class MovementController : MonoBehaviour
 
     private void UpdateMouseMovementWithoutClick()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
-        Vector2 dirVector = (mousePosition - this.transform.position).normalized;
-        //accélération
-        Vector2 curForce = (dirVector * m_speed) * Time.deltaTime;
+        //décélération
+        Vector2 curForce = (-1f * m_body.velocity * Time.deltaTime);
+        if(!Input.GetMouseButton(0))
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
+            Vector2 dirVector = (mousePosition - this.transform.position).normalized;
+            //accélération
+            curForce = (dirVector * m_speed) * Time.deltaTime;
+        }
         m_body.velocity += curForce;
     }
 

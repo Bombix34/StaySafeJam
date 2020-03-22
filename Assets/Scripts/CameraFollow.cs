@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        if(this.GetComponent<MovementController>()!=null)
+        if(this.GetComponent<MovementController>() != null)
         {
             Vector2 destPos = this.GetComponent<MovementController>().PositionWithVelocity;
             m_camera.transform.position = Vector2.Lerp(m_camera.transform.position, destPos, Time.deltaTime);
