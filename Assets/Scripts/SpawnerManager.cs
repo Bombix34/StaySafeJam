@@ -36,7 +36,7 @@ public class SpawnerManager : Singleton<SpawnerManager>
         currentCells.Add(newCell);
         float playerScale = player.transform.localScale.x;
         float randScale = Random.Range(Mathf.Clamp(playerScale - PlayerManager.Instance.GetAdaptedValue(10f),0f,playerScale), playerScale);
-        newCell.transform.localScale = new Vector3(randScale,randScale,randScale);
+        newCell.GetComponent<CellManager>().InitScale(randScale,1.2f);
     }
 
     private Vector3 GetPointOutOfBounds()
