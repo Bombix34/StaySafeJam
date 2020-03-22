@@ -35,7 +35,7 @@ public class SpawnerManager : Singleton<SpawnerManager>
         GameObject newCell = Instantiate(cellPrefab, GetPointOutOfBounds(), Quaternion.identity, this.transform);
         currentCells.Add(newCell);
         float playerScale = player.transform.localScale.x;
-        float randScale = Random.Range(Mathf.Clamp(playerScale - 10f,0f,playerScale), playerScale -0.2f);
+        float randScale = Random.Range(Mathf.Clamp(playerScale - PlayerManager.Instance.GetAdaptedValue(10f),0f,playerScale), playerScale);
         newCell.transform.localScale = new Vector3(randScale,randScale,randScale);
     }
 
