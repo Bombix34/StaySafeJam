@@ -57,7 +57,7 @@ public class EatManager : MonoBehaviour
             Camera.main.GetComponent<CameraManager>().ChangeSize(finalScale.magnitude);
             eater.GetComponent<MovementController>().ChangeSpeed(finalScale.magnitude);
         }
-        else if(eaten.CompareTag("Player"))
+        if(eaten.GetComponent<CameraFollow>()!=null && eaten.GetComponent<CameraFollow>().enabled)
         {
             eaten.GetComponent<CameraFollow>().enabled = false;
             eater.AddComponent<CameraFollow>();
