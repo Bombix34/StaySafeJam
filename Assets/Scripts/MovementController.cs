@@ -65,4 +65,9 @@ public class MovementController : MonoBehaviour
             m_body.velocity = Vector2.ClampMagnitude(m_body.velocity, maxSpeed);
         }
     }
+
+    public Vector2 PositionWithVelocity
+    {
+        get=>(Vector2)this.transform.position + (m_body.velocity*1.4f);
+    }
 }
