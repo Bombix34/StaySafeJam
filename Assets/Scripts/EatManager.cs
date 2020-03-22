@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 
 public class EatManager : MonoBehaviour
 {
     public float speedEat=1;
     public float speedScale = 1;
+
+    public UnityEvent onPlayerEatCellEvent;
 
     private void Start()
     {
@@ -33,7 +36,7 @@ public class EatManager : MonoBehaviour
     private void AbsorbOtherCell(GameObject eater, GameObject eaten)
     {
         Rigidbody2D other = eaten.GetComponent<Rigidbody2D>();
-        Vector3 finalScale = eater.transform.localScale + eaten.transform.localScale;
+        Vector3 finalScale = eater.transform.localScale + (eaten.transform.localScale*0.5f);
         if ((finalScale.magnitude >= 150)&& (eater.CompareTag("Player")))
         {
             CameraManager.Instance.ForceDecreaseOrthographicSize(6f, PlayerManager.Instance.GetAdaptedValue(CameraManager.Instance.speedCam));
@@ -48,6 +51,7 @@ public class EatManager : MonoBehaviour
         SpawnerManager.Instance.CurrentCells.Remove(eaten);
         if(eater.CompareTag("Player"))
         {
+            onPlayerEatCellEvent.Invoke();
             eater.GetComponent<PlayerManager>().CurrentSize = finalScale.magnitude;
             Camera.main.GetComponent<CameraManager>().ChangeSize(finalScale.magnitude);
             eater.GetComponent<MovementController>().ChangeSpeed(finalScale.magnitude);
