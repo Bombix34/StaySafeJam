@@ -14,12 +14,14 @@ public class CameraManager : Singleton<CameraManager>
     private void Start()
     {
         m_camera = this.GetComponent<Camera>();
-        initCamSize = m_camera.orthographicSize;
-        sizeToSet = m_camera.orthographicSize;
+        initCamSize = 5f;
+        sizeToSet = 5f;
+        ForceDecreaseOrthographicSize(5f, 200f);
     }
 
     private void Update()
     {
+        /*
         if(m_camera.orthographicSize<sizeToSet)
         {
             m_camera.orthographicSize += Time.deltaTime * PlayerManager.instance.GetAdaptedValue(speedCam);
@@ -27,26 +29,51 @@ public class CameraManager : Singleton<CameraManager>
         else if (m_camera.orthographicSize > sizeToSet)
         {
             m_camera.orthographicSize -= Time.deltaTime * PlayerManager.instance.GetAdaptedValue(speedCam);
-        }
+        }*/
     }
 
     public void ChangeSize(float curScaleMagnitude)
     {
         sizeToSet = PlayerManager.instance.GetAdaptedValue(initCamSize);
+        if (m_camera.orthographicSize < sizeToSet)
+        {
+            ForceIncreaseOrthographicSize(sizeToSet, PlayerManager.instance.GetAdaptedValue(speedCam));
+        }
+        else if (m_camera.orthographicSize > sizeToSet)
+        {
+            ForceDecreaseOrthographicSize(sizeToSet, PlayerManager.instance.GetAdaptedValue(speedCam));
+        }
     }
 
     public void ForceDecreaseOrthographicSize(float endVal, float speed)
     {
-        StartCoroutine(ForceSize(endVal, speed));
+        StartCoroutine(ForceSize(endVal, speed,true));
     }
 
-    private IEnumerator ForceSize(float endVal, float speed)
+    public void ForceIncreaseOrthographicSize(float endVal, float speed)
     {
-        while(m_camera.orthographicSize>endVal)
+        StartCoroutine(ForceSize(endVal, speed, false));
+    }
+
+    private IEnumerator ForceSize(float endVal, float speed, bool isDecrease)
+    {
+        if(isDecrease)
         {
-            m_camera.orthographicSize -= Time.deltaTime * speed;
-            yield return null;
+            while(m_camera.orthographicSize>endVal)
+            {
+                m_camera.orthographicSize -= Time.deltaTime * speed;
+                yield return null;
+            }
+        }
+        else
+        {
+            while (m_camera.orthographicSize < endVal)
+            {
+                m_camera.orthographicSize += Time.deltaTime * speed;
+                yield return null;
+            }
         }
         m_camera.orthographicSize = endVal;
     }
+
 }

@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5936020398343913608}
   - component: {fileID: 5936020398343913612}
   - component: {fileID: 3476179997229888088}
+  - component: {fileID: 525826995721555364}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Cell
@@ -165,3 +166,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initSizeSpeed: 1
+  sprite: {fileID: 5936020398196050149}
+--- !u!114 &525826995721555364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936020398343913615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0142ea071a749834487c0a6366b78936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedEat: 0.2
+  speedScale: 0.5
+  onPlayerEatCellEvent:
+    m_PersistentCalls:
+      m_Calls: []
