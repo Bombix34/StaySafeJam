@@ -11,20 +11,27 @@ public class CellManager : MonoBehaviour
     [SerializeField]
     private SpriteRenderer sprite;
 
+    private Rigidbody2D m_body;
+
+    private void Start()
+    {
+        InitType();
+    }
+
     private void Update()
     {
-        if(cellType==CellType.neutralGrow)
+        if (cellType == CellType.neutralGrow)
         {
-            this.transform.localScale = new Vector3(transform.localScale.x + Time.deltaTime, transform.localScale.x + (Time.deltaTime*0.2f), transform.localScale.x + (Time.deltaTime * 0.2f));
+            float speed = PlayerManager.Instance.GetAdaptedValue(0.2f);
+            this.transform.localScale = new Vector3(transform.localScale.x + (Time.deltaTime * speed), transform.localScale.x + (Time.deltaTime * speed), transform.localScale.x + (Time.deltaTime * speed));
         }
     }
 
     public void InitScale(float newScale, float bumpSize)
     {
-        InitType();
         Sequence scaleSequence = DOTween.Sequence();
-        scaleSequence.Append(this.transform.DOScale(newScale*bumpSize, Time.deltaTime * PlayerManager.Instance.GetAdaptedValue(initSizeSpeed)));
-        scaleSequence.Append(this.transform.DOScale(newScale, Time.deltaTime * PlayerManager.Instance.GetAdaptedValue(initSizeSpeed*0.8f)));
+        scaleSequence.Append(this.transform.DOScale(newScale * bumpSize, Time.deltaTime * PlayerManager.Instance.GetAdaptedValue(initSizeSpeed)));
+        scaleSequence.Append(this.transform.DOScale(newScale, Time.deltaTime * PlayerManager.Instance.GetAdaptedValue(initSizeSpeed * 0.8f)));
     }
 
     private void InitType()
@@ -52,7 +59,7 @@ public class CellManager : MonoBehaviour
 
     public void OnEat()
     {
-        switch(cellType)
+        switch (cellType)
         {
             case CellType.neutral:
                 break;

@@ -445,7 +445,7 @@ PrefabInstance:
     - target: {fileID: 5607420209480819425, guid: e5d253e5b8fd22a4f924e5b2c8468f9f,
         type: 3}
       propertyPath: timeBetweenSpawn.y
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5607420209480819427, guid: e5d253e5b8fd22a4f924e5b2c8468f9f,
         type: 3}
@@ -693,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 6090366533234046518, guid: 60f23a02089b8bd4c8607aa98135734c,
         type: 3}
       propertyPath: orthographic size
-      value: 300
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6090366533234046518, guid: 60f23a02089b8bd4c8607aa98135734c,
         type: 3}

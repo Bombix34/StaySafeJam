@@ -48,7 +48,7 @@ public class EatManager : MonoBehaviour
         eaten.transform.DOScale(Vector3.zero, speedScale);
         eaten.GetComponent<MovementController>()?.ResetVelocity();
         Sequence animSequence = DOTween.Sequence();
-        animSequence.Append(eater.transform.DOScale(finalScale, speedScale ).OnComplete(() => { Destroy(eaten); }));
+        animSequence.Append(eater.transform.DOScale(finalScale, speedScale ).OnComplete(() => { eaten.SetActive(false); }));
         SpawnerManager.Instance.CurrentCells.Remove(eaten);
         if(eater.CompareTag("Player"))
         {
@@ -56,6 +56,10 @@ public class EatManager : MonoBehaviour
             eater.GetComponent<PlayerManager>().CurrentSize = finalScale.magnitude;
             Camera.main.GetComponent<CameraManager>().ChangeSize(finalScale.magnitude);
             eater.GetComponent<MovementController>().ChangeSpeed(finalScale.magnitude);
+        }
+        else if(eaten.CompareTag("Player"))
+        {
+            GameManager.Instance.IsPlayerDead = true;
         }
         if(eaten.GetComponent<CameraFollow>()!=null && eaten.GetComponent<CameraFollow>().enabled)
         {

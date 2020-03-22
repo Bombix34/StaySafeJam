@@ -16,20 +16,11 @@ public class CameraManager : Singleton<CameraManager>
         m_camera = this.GetComponent<Camera>();
         initCamSize = 5f;
         sizeToSet = 5f;
-        ForceDecreaseOrthographicSize(5f, 200f);
+        ForceDecreaseOrthographicSize(5f, 6000f);
     }
 
     private void Update()
     {
-        /*
-        if(m_camera.orthographicSize<sizeToSet)
-        {
-            m_camera.orthographicSize += Time.deltaTime * PlayerManager.instance.GetAdaptedValue(speedCam);
-        }
-        else if (m_camera.orthographicSize > sizeToSet)
-        {
-            m_camera.orthographicSize -= Time.deltaTime * PlayerManager.instance.GetAdaptedValue(speedCam);
-        }*/
     }
 
     public void ChangeSize(float curScaleMagnitude)

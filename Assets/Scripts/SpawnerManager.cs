@@ -37,7 +37,13 @@ public class SpawnerManager : Singleton<SpawnerManager>
         float playerScale = player.transform.localScale.x;
         float randScale = Random.Range(Mathf.Clamp(playerScale - PlayerManager.Instance.GetAdaptedValue(10f),0f,playerScale), playerScale);
         newCell.GetComponent<CellManager>().InitScale(randScale,1.2f);
-        newCell.GetComponent<CellManager>().InitVelocity();
+        InitVelocity(newCell);
+    }
+
+    public void InitVelocity(GameObject cell)
+    {
+        float speed = PlayerManager.Instance.GetComponent<MovementController>().CurSpeed * Random.Range(0.2f, 1.2f);
+        cell.GetComponent<Rigidbody2D>().velocity += new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * speed;
     }
 
     private Vector3 GetPointOutOfBounds()
