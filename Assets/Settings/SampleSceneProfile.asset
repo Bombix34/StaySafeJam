@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 3.65
+    m_Value: 5
     min: 0.1
   aperture:
     m_OverrideState: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.123
+    m_Value: 0
     min: 0
     max: 1
 --- !u!114 &-7011558710299706105
@@ -240,15 +240,15 @@ MonoBehaviour:
   m_AdvancedMode: 0
   type:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 5
   intensity:
     m_OverrideState: 1
-    m_Value: 0.839
+    m_Value: 0
     min: 0
     max: 1
   response:
     m_OverrideState: 1
-    m_Value: 0.595
+    m_Value: 0
     min: 0
     max: 1
   texture:
@@ -298,7 +298,7 @@ MonoBehaviour:
     m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0.265
+    m_Value: 0
     min: 0
     max: 1
   clamp:
@@ -321,7 +321,7 @@ MonoBehaviour:
   active: 1
   m_AdvancedMode: 0
   postExposure:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   contrast:
     m_OverrideState: 1
@@ -341,6 +341,6 @@ MonoBehaviour:
     max: 180
   saturation:
     m_OverrideState: 1
-    m_Value: -48
+    m_Value: -100
     min: -100
     max: 100
