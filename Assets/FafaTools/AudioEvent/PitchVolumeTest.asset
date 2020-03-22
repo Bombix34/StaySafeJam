@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,8 +16,8 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: e2b29a11d2b3b4b4785a0e050d04313f, type: 3}
   volume:
-    minValue: 0.56859833
-    maxValue: 0.8501743
+    minValue: 0.49888155
+    maxValue: 0.61348176
   pitch:
-    minValue: 1.0196986
-    maxValue: 1.4438008
+    minValue: 0.8894411
+    maxValue: 1.294991
