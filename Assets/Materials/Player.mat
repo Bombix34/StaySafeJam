@@ -104,8 +104,8 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DEFORM: 1
-    - _Deform: 1
-    - _DeformIntensity: 0.48
+    - _Deform: 0
+    - _DeformIntensity: 0.75
     - _DeformOffset: 0.68
     - _DeformScale: 4.45
     - _DstBlend: 0

@@ -647,11 +647,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8037869803340929307, guid: fe5082080ae820d469b5b1fc8fb98c04,
         type: 3}
-      propertyPath: material
-      value: 
-      objectReference: {fileID: 2100000, guid: f9f788f21be54904497ec73ceedc1341, type: 2}
-    - target: {fileID: 8037869803340929307, guid: fe5082080ae820d469b5b1fc8fb98c04,
-        type: 3}
       propertyPath: background
       value: 
       objectReference: {fileID: 217104768}

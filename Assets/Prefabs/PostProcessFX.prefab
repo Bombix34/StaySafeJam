@@ -169,9 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gradientState: 50
-  fuckedColors: 100
+  gradientState: 40
+  fuckedColors: 70
   multiplyColor: 0.08
+  maxColor: 0.85
   multiplyFX: 0.05
 --- !u!114 &4730776327269161799
 MonoBehaviour:
@@ -202,3 +203,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplyDeform: 0.02
   fxSpeedBumper: 2
+  maxDeform: 0.75
