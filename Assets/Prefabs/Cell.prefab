@@ -91,12 +91,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 632e92dc35b20e4468dec99661c56add, type: 3}
   - {fileID: 21300000, guid: af59f28990a6e84488d7d6989f6ee846, type: 3}
   - {fileID: 21300000, guid: e2e38c8227bf5004faf29587109fc508, type: 3}
-  materialsList:
-  - {fileID: 2100000, guid: 87abc1ddd955f3942a2e42ddcab262f5, type: 2}
-  - {fileID: 2100000, guid: c8ca8f3589e0587459417b45b68876e2, type: 2}
-  - {fileID: 2100000, guid: 130ac0e83522a5d45a8e652f01a87f5c, type: 2}
-  - {fileID: 2100000, guid: 8761cd06ddeb2d84594db8fa10c74f80, type: 2}
-  - {fileID: 2100000, guid: 3437f1515ecf68245844b5673d17ef48, type: 2}
+  colorsList:
+  - {r: 0.9622642, g: 0.6127626, b: 0.6127626, a: 1}
+  - {r: 0.5473478, g: 0.8521159, b: 0.9433962, a: 1}
+  - {r: 0.5862852, g: 0.8018868, b: 0.62853146, a: 1}
+  - {r: 1, g: 0.8568884, b: 0.41960788, a: 1}
+  - {r: 0.64579463, g: 0.637104, b: 0.9716981, a: 1}
+  - {r: 1, g: 0.6556604, b: 0.9650019, a: 1}
+  cellmat: {fileID: 2100000, guid: c8ca8f3589e0587459417b45b68876e2, type: 2}
   sprite: {fileID: 2384093332146929119}
 --- !u!114 &525826995721555364
 MonoBehaviour:
