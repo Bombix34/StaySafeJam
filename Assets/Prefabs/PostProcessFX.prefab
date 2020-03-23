@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalVolume: {fileID: 0}
-  fxSpeed: 4
+  fxSpeed: 3
   maxDof: 0.1
 --- !u!114 &6677860668921279565
 MonoBehaviour:

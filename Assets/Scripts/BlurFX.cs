@@ -22,6 +22,7 @@ public class BlurFX : MonoBehaviour
         time = 0;
         increased = false;
         launchBlur = true;
+        dofLayer.active = true;
     }
 
     private void Start()
@@ -29,6 +30,7 @@ public class BlurFX : MonoBehaviour
         volume = globalVolume.GetComponent<Volume>();
         volume.profile.TryGet(out dofLayer);
 
+        dofLayer.active = false;
         minDof = dofLayer.focusDistance.value;
     }
 
@@ -50,6 +52,7 @@ public class BlurFX : MonoBehaviour
                 time -= Time.deltaTime * fxSpeed;
                 increased = time <= 0 ? false : true;
                 launchBlur = time <= 0 ? false : true;
+                dofLayer.active = time <= 0 ? false : true;
             }
         }
     }
