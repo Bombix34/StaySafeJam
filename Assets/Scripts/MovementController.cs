@@ -42,15 +42,11 @@ public class MovementController : MonoBehaviour
         {
             isFirstClick = true;
             SpawnerManager.Instance.CanSpawn = true;
-            StartCoroutine(StartMusic());
+            MusicManager.Instance.LaunchMusic();
         }
     }
 
-    private IEnumerator StartMusic()
-    {
-        yield return new WaitForSeconds(2f);
-        MusicManager.Instance.LaunchMusic();
-    }
+    
 
 
     private void UpdateMovement()

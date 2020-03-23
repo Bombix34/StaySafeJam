@@ -109,7 +109,7 @@ public class SpawnerManager : Singleton<SpawnerManager>
     {
         foreach(var item in currentCells)
         {
-            Destroy(item.gameObject);
+            item.gameObject.SetActive(false);
         }
     }
 }

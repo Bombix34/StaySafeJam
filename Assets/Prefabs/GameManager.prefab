@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  timeBetweenSpawn: {x: 0.1, y: 0.4}
+  timeBetweenSpawn: {x: 0.1, y: 0.5}
 --- !u!1001 &5607420209010300491
 PrefabInstance:
   m_ObjectHideFlags: 0
