@@ -24,7 +24,7 @@ public class CellManager : MonoBehaviour
     {
         if (cellType == CellType.neutralGrow)
         {
-            float speed = PlayerManager.Instance.GetAdaptedValue(0.2f);
+            float speed = PlayerManager.Instance.GetAdaptedValue(0.075f);
             this.transform.localScale = new Vector3(transform.localScale.x + (Time.deltaTime * speed), transform.localScale.x + (Time.deltaTime * speed), transform.localScale.x + (Time.deltaTime * speed));
         }
     }

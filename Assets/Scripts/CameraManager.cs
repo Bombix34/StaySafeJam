@@ -16,7 +16,7 @@ public class CameraManager : Singleton<CameraManager>
         m_camera = this.GetComponent<Camera>();
         initCamSize = 5f;
         sizeToSet = 5f;
-        ForceDecreaseOrthographicSize(5f, 6000f);
+        ForceDecreaseOrthographicSize(5f, 300f);
     }
 
     private void Update()

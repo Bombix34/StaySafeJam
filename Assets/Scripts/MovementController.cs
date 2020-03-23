@@ -41,6 +41,7 @@ public class MovementController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             isFirstClick = true;
+            SpawnerManager.Instance.CanSpawn = true;
         }
     }
 
@@ -109,6 +110,11 @@ public class MovementController : MonoBehaviour
     public Vector2 PositionWithVelocity
     {
         get=>(Vector2)this.transform.position + (m_body.velocity*1.4f);
+    }
+
+    public Vector2 Velocity
+    {
+        get => (Vector2)m_body.velocity;
     }
 
     public float CurSpeed

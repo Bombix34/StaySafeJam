@@ -7,8 +7,11 @@ public class PlayerManager : Singleton<PlayerManager>
     public float BaseSize { get; set; }
     public float CurrentSize { get; set; }
 
+    public MovementController Movement { get; set; }
+
     private void Start()
     {
+        Movement = GetComponent<MovementController>();
         BaseSize = this.transform.localScale.magnitude;
         CurrentSize = BaseSize;
     }

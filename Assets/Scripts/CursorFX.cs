@@ -7,8 +7,8 @@ public class CursorFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 pos = Input.mousePosition;
-        pos = Camera.main.ScreenToWorldPoint(pos);
-        transform.position = pos;
+        Vector3 dirVector = (Camera.main.ScreenToWorldPoint(Input.mousePosition)-PlayerManager.Instance.transform.position);
+        this.transform.position = PlayerManager.Instance.transform.position + (dirVector);
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 10f);
     }
 }
