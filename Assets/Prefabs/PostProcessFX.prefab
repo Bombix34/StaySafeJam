@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplyFx: 0.01
-  reduceScreen: 0.004
+  reduceScreen: 0.002
   globalVolume: {fileID: 0}
 --- !u!114 &7038711676260883590
 MonoBehaviour:
