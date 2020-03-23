@@ -467,6 +467,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5240665070765021160, guid: aeac82420257dcb44950da532358e22d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240665070856062452, guid: aeac82420257dcb44950da532358e22d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240665071022088567, guid: aeac82420257dcb44950da532358e22d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240665071217587532, guid: aeac82420257dcb44950da532358e22d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240665071532598084, guid: aeac82420257dcb44950da532358e22d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240665071844160873, guid: aeac82420257dcb44950da532358e22d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240665072026659480, guid: aeac82420257dcb44950da532358e22d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240665072392124703, guid: aeac82420257dcb44950da532358e22d,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeac82420257dcb44950da532358e22d, type: 3}
 --- !u!1001 &5607420209101827458
