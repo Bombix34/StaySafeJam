@@ -19,10 +19,12 @@ public class PlayerFX : MonoBehaviour
     {
         playerMat = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<SpriteRenderer>().material;
         minOffset = playerMat.GetFloat("_DeformOffset");
+        playerMat.SetInt("_Deform", 0);
     }
 
     public void PlayerMatFX()
     {
+        playerMat.SetInt("_Deform", 1);
         deformValue += multiplyDeform;
         deformValue = Mathf.Clamp(deformValue, 0, maxDeform);
         playerMat.SetFloat("_DeformIntensity", deformValue);
@@ -37,7 +39,7 @@ public class PlayerFX : MonoBehaviour
         if (launch)
         {
             time = Mathf.Clamp(time, 0, 1);
-            playerMat.SetFloat("_DeformOffset", Mathf.Lerp(minOffset, 1, time));
+            playerMat.SetFloat("_DeformOffset", Mathf.Lerp(minOffset, 1.2f, time));
 
             if (!increased)
             {

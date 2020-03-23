@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 2330819289580650708}
   - component: {fileID: 827997972250485857}
   - component: {fileID: 8037869803340929307}
-  - component: {fileID: 4730776327269161799}
   - component: {fileID: 6828567716896555476}
   m_Layer: 0
   m_Name: PostProcessFX
@@ -53,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa5525e0ee067c45a2a6f9a9122fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplyFx: 0.005
-  reduceScreen: 0.0005
+  multiplyFx: 0.01
+  reduceScreen: 0.004
   globalVolume: {fileID: 0}
 --- !u!114 &7038711676260883590
 MonoBehaviour:
@@ -171,24 +170,10 @@ MonoBehaviour:
   background: {fileID: 0}
   gradientState: 40
   fuckedColors: 70
+  maxFuckedColors: 0.59
   multiplyColor: 0.08
   maxColor: 0.85
   multiplyFX: 0.05
---- !u!114 &4730776327269161799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7215658282703053720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75b262cb9fd8c23479edbce6fa240310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  globalVolume: {fileID: 0}
-  fxSpeed: 0.8
-  maxDistortion: -0.4
 --- !u!114 &6828567716896555476
 MonoBehaviour:
   m_ObjectHideFlags: 0
