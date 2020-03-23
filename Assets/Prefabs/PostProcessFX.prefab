@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 827997972250485857}
   - component: {fileID: 8037869803340929307}
   - component: {fileID: 4730776327269161799}
+  - component: {fileID: 6828567716896555476}
   m_Layer: 0
   m_Name: PostProcessFX
   m_TagString: Untagged
@@ -187,3 +188,17 @@ MonoBehaviour:
   globalVolume: {fileID: 0}
   fxSpeed: 0.8
   maxDistortion: -0.4
+--- !u!114 &6828567716896555476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215658282703053720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826abefcd4265e844810b0ea1830585c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplyDeform: 0.05
+  fxSpeedBumper: 2
