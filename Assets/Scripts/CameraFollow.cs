@@ -24,4 +24,11 @@ public class CameraFollow : MonoBehaviour
         }
         m_camera.transform.position = new Vector3(m_camera.transform.position.x, m_camera.transform.position.y, -10f);
     }
+
+    public Vector2 GetCenterPositionWithoutOffset()
+    {
+        Vector3 returnVal = this.transform.position - PlayerManager.Instance.gameObject.transform.position;
+        returnVal = new Vector3(returnVal.x,returnVal.y,-10f);
+        return returnVal;
+    }
 }

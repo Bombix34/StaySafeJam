@@ -11,6 +11,8 @@ public class SpawnerManager : Singleton<SpawnerManager>
 
     private List<GameObject> currentCells;
 
+    public bool CanSpawn { get; set; } = false;
+
     private void Start()
     {
         currentCells = new List<GameObject>();
@@ -19,6 +21,10 @@ public class SpawnerManager : Singleton<SpawnerManager>
 
     private void Update()
     {
+        if(!CanSpawn)
+        {
+            return;
+        }
         if(curChrono>0)
         {
             curChrono -= Time.deltaTime;
