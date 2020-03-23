@@ -5,17 +5,20 @@ using UnityEngine;
 public class SpawnerManager : Singleton<SpawnerManager>
 {
     public Transform player;
-    public GameObject cellPrefab;
     public Vector2 timeBetweenSpawn;
     private float curChrono;
 
-    private List<GameObject> currentCells;
+    private CellManager[] currentCells;
 
     public bool CanSpawn { get; set; } = false;
 
     private void Start()
     {
-        currentCells = new List<GameObject>();
+        currentCells = GetComponentsInChildren<CellManager>();
+        for(int i = 0; i< currentCells.Length;++i)
+        {
+            currentCells[i].gameObject.SetActive(false);
+        }
         curChrono = Random.Range(timeBetweenSpawn.x, timeBetweenSpawn.y);
     }
 
@@ -38,17 +41,30 @@ public class SpawnerManager : Singleton<SpawnerManager>
 
     private void SpawnCell()
     {
-        GameObject newCell = Instantiate(cellPrefab, GetPointOutOfBounds(), Quaternion.identity, this.transform);
-        currentCells.Add(newCell);
+        CellManager newCell = GetInactiveCell();
+        newCell.transform.position = GetPointOutOfBounds();
+        newCell.ResetCell();
         float playerScale = player.transform.localScale.x;
         float randScale = Random.Range(Mathf.Clamp(playerScale - PlayerManager.Instance.GetAdaptedValue(10f),0f,playerScale), playerScale);
-        newCell.GetComponent<CellManager>().InitScale(randScale,1.2f);
-        InitVelocity(newCell);
+        newCell.InitScale(randScale,1.2f);
+        InitVelocity(newCell.gameObject);
+    }
+
+    private CellManager GetInactiveCell()
+    {
+        for(int i =0; i < currentCells.Length;++i)
+        {
+            if(!currentCells[i].gameObject.active)
+            {
+                return currentCells[i];
+            }
+        }
+        return null;
     }
 
     public void InitVelocity(GameObject cell)
     {
-        float speed = PlayerManager.Instance.GetComponent<MovementController>().CurSpeed * Random.Range(0.2f, 1.2f);
+        float speed = PlayerManager.Instance.GetComponent<MovementController>().CurSpeed * Random.Range(0.2f, 1.1f);
         cell.GetComponent<Rigidbody2D>().velocity += new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * speed;
     }
 
@@ -95,10 +111,5 @@ public class SpawnerManager : Singleton<SpawnerManager>
         {
             Destroy(item.gameObject);
         }
-    }
-
-    public List<GameObject> CurrentCells
-    {
-        get => currentCells;
     }
 }

@@ -9,16 +9,16 @@ public class CellManager : MonoBehaviour
     public List<Sprite> spritesList;
     public Color[] colorsList;
     public Material cellmat;
-    private CellType cellType;
+    private CellType cellType = CellType.size;
 
     [SerializeField]
     private SpriteRenderer sprite;
 
     private Rigidbody2D m_body;
 
-    private void Start()
+    private void Awake()
     {
-        InitType();
+        m_body = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -67,6 +67,14 @@ public class CellManager : MonoBehaviour
                 break;
         }
         */
+    }
+
+    public void ResetCell()
+    {
+        m_body.velocity = Vector2.zero;
+        transform.localScale = Vector3.zero;
+        gameObject.SetActive(true);
+        InitType();
     }
 
     void CellRandom()
