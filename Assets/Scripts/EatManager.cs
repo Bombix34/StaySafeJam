@@ -11,6 +11,8 @@ public class EatManager : MonoBehaviour
 
     public UnityEvent onPlayerEatCellEvent;
 
+    public int EatenNumber { get; set; } = 0;
+
     private void Start()
     {
         if (this.gameObject.CompareTag("Player"))
@@ -36,6 +38,7 @@ public class EatManager : MonoBehaviour
 
     private void AbsorbOtherCell(GameObject eater, GameObject eaten)
     {
+        eater.GetComponent<EatManager>().EatenNumber++;
         Rigidbody2D other = eaten.GetComponent<Rigidbody2D>();
         Vector3 finalScale = eater.transform.localScale + (eaten.transform.localScale*0.15f);
         if ((finalScale.magnitude >= 150)&& (eater.CompareTag("Player")))
@@ -55,15 +58,46 @@ public class EatManager : MonoBehaviour
             eater.GetComponent<PlayerManager>().CurrentSize = finalScale.magnitude;
             Camera.main.GetComponent<CameraManager>().ChangeSize(finalScale.magnitude);
             eater.GetComponent<MovementController>().ChangeSpeed(finalScale.magnitude);
+            CheckNbEaten(eater.GetComponent<EatManager>());
+            MusicManager.Instance.Sound.PlaySound(2);
         }
         else if(eaten.CompareTag("Player"))
         {
             GameManager.Instance.IsPlayerDead = true;
+            MusicManager.Instance.Sound.PlaySound(0);
         }
         if(eaten.GetComponent<CameraFollow>()!=null && eaten.GetComponent<CameraFollow>().enabled)
         {
             eaten.GetComponent<CameraFollow>().enabled = false;
             eater.AddComponent<CameraFollow>();
+        }
+    }
+
+    public void CheckNbEaten(EatManager player)
+    {
+        if(player.EatenNumber==3)
+        {
+            MusicManager.Instance.AddLayer();
+        }
+        else if(player.EatenNumber==15)
+        {
+            MusicManager.Instance.AddLayer();
+        }
+        else if (player.EatenNumber == 25)
+        {
+            MusicManager.Instance.AddLayer();
+        }
+        else if (player.EatenNumber == 45)
+        {
+            MusicManager.Instance.AddLayer();
+        }
+        else if (player.EatenNumber == 60)
+        {
+            MusicManager.Instance.AddLayer();
+        }
+        else if (player.EatenNumber == 80)
+        {
+            MusicManager.Instance.AddLayer();
         }
     }
 }

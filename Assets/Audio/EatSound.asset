@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf35d8fc3f884871bba8933d5b9d6cd, type: 3}
+  m_Name: EatSound
+  m_EditorClassIdentifier: 
+  loop: 0
+  clips:
+  - {fileID: 8300000, guid: 8eb50be51f35b3f4a972e099f14baf2e, type: 3}
+  - {fileID: 8300000, guid: c3f940a5c9abb45449089aee35fd6ece, type: 3}
+  - {fileID: 8300000, guid: 524ad217c0bb3f84c9e719e287a37e67, type: 3}
+  - {fileID: 8300000, guid: f63a69e4345c4df4c8ba7ca40637a38a, type: 3}
+  - {fileID: 8300000, guid: 68f3c4cfc37ed4f40a8b4b541860ac38, type: 3}
+  - {fileID: 8300000, guid: d3ec120c1389ff24c932c3a3c1e4e873, type: 3}
+  - {fileID: 8300000, guid: 1fd1064c702bb284185faab058787631, type: 3}
+  - {fileID: 8300000, guid: eb2b81c4da3a08343aff559c696ec378, type: 3}
+  - {fileID: 8300000, guid: eb2af5d57831c2643b6d67e7eb503bc6, type: 3}
+  - {fileID: 8300000, guid: 767623da8d0bd7d4caf47262bd7bb965, type: 3}
+  - {fileID: 8300000, guid: 23ad60b7e1bcd4742b190e88b1173288, type: 3}
+  - {fileID: 8300000, guid: 96c05c15fb6c8024f855668948070f5f, type: 3}
+  - {fileID: 8300000, guid: d2866ad9220a25e4b9142a30e1107d36, type: 3}
+  - {fileID: 8300000, guid: 45f768efd6cfdb64f91dcffa9e049698, type: 3}
+  - {fileID: 8300000, guid: 894a86d8531d12d4f82b3569ddc452dd, type: 3}
+  - {fileID: 8300000, guid: 0f763a593f6170649830afb2c22b2449, type: 3}
+  volume:
+    minValue: 0.3107291
+    maxValue: 0.4627128
+  pitch:
+    minValue: 0.99843585
+    maxValue: 1.0039123
