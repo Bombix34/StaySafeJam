@@ -17,8 +17,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e85c8932836dab2469da8cdc19313388, type: 3}
   - {fileID: 8300000, guid: e85c8932836dab2469da8cdc19313388, type: 3}
   volume:
-    minValue: 0.3107291
-    maxValue: 0.4627128
+    minValue: 0.07556993
+    maxValue: 0.11284206
   pitch:
     minValue: 0.8834304
     maxValue: 1.1680154
