@@ -12,10 +12,14 @@ public class ChromaticFX : MonoBehaviour
     Volume volume;
     ChromaticAberration chromaticLayer = null;
 
-    public void Chroma()
+    private void Start()
     {
         volume = globalVolume.GetComponent<Volume>();
         volume.profile.TryGet(out chromaticLayer);
+    }
+
+    public void Chroma()
+    {
         chromaticLayer.intensity.value += multiplyFx;
     }
 }

@@ -33,9 +33,6 @@ public class FlashFX : MonoBehaviour
     {
         if (launchBlur)
         {
-            volume = globalVolume.GetComponent<Volume>();
-            volume.profile.TryGet(out colorLayer);
-
             time = Mathf.Clamp(time, 0, 1);
             colorLayer.postExposure.value = Mathf.Lerp(0, maxFlash, time);
 

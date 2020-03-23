@@ -12,10 +12,14 @@ public class MotionBlurFX : MonoBehaviour
     Volume volume;
     MotionBlur motionLayer = null;
 
-    public void Motion()
+    private void Start()
     {
         volume = globalVolume.GetComponent<Volume>();
         volume.profile.TryGet(out motionLayer);
+    }
+
+    public void Motion()
+    {
         motionLayer.intensity.value += multiplyFx;
     }
 }

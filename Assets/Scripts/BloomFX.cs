@@ -12,10 +12,14 @@ public class BloomFX : MonoBehaviour
     Volume volume;
     Bloom bloomLayer = null;
 
-    public void Bloom()
+    private void Start()
     {
         volume = globalVolume.GetComponent<Volume>();
         volume.profile.TryGet(out bloomLayer);
+    }
+
+    public void Bloom()
+    {
         bloomLayer.dirtIntensity.value = Mathf.Clamp(bloomLayer.dirtIntensity.value, 0, 1000);
         bloomLayer.dirtIntensity.value += multiplyFx;
     }

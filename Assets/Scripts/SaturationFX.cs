@@ -12,10 +12,14 @@ public class SaturationFX : MonoBehaviour
     Volume volume;
     ColorAdjustments colorLayer = null;
 
-    public void Saturation()
+    private void Start()
     {
         volume = globalVolume.GetComponent<Volume>();
         volume.profile.TryGet(out colorLayer);
+    }
+
+    public void Saturation()
+    {
         colorLayer.saturation.value += multiplyFx;
     }
 }

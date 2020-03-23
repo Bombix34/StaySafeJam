@@ -12,10 +12,14 @@ public class GrainFX : MonoBehaviour
     Volume volume;
     FilmGrain grainLayer = null;
 
-    public void Grain()
+    private void Start()
     {
         volume = globalVolume.GetComponent<Volume>();
         volume.profile.TryGet(out grainLayer);
+    }
+
+    public void Grain()
+    {
         grainLayer.intensity.value += multiplyFx;
     }
 }

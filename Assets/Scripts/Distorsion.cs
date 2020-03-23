@@ -14,20 +14,21 @@ public class Distorsion : MonoBehaviour
     LensDistortion distorsionLayer = null;
     GameObject player;
 
-    public void Distortion()
+    private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         volume = globalVolume.GetComponent<Volume>();
         volume.profile.TryGet(out distorsionLayer);
+    }
+
+    public void Distortion()
+    {
         distorsionLayer.intensity.value -= multiplyFx;
         distorsionLayer.scale.value -= reduceScreen;
     }
 
     private void Update()
     {
-        volume = globalVolume.GetComponent<Volume>();
-        volume.profile.TryGet(out distorsionLayer);
-
-        player = GameObject.FindGameObjectWithTag("Player");
         Vector2 playerScreenPos = Camera.main.WorldToScreenPoint(player.transform.position);
         playerScreenPos.x = playerScreenPos.x / Screen.width;
         playerScreenPos.y = playerScreenPos.y / Screen.height;

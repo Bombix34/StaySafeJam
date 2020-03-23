@@ -36,9 +36,6 @@ public class BlurFX : MonoBehaviour
     {
         if (launchBlur)
         {
-            volume = globalVolume.GetComponent<Volume>();
-            volume.profile.TryGet(out dofLayer);
-
             time = Mathf.Clamp(time, 0, 1);
             dofLayer.focusDistance.value = Mathf.Lerp(minDof, maxDof, time);
 

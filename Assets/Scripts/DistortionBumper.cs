@@ -36,9 +36,6 @@ public class DistortionBumper : MonoBehaviour
     {
         if (launchBlur)
         {
-            volume = globalVolume.GetComponent<Volume>();
-            volume.profile.TryGet(out lensLayer);
-
             time = Mathf.Clamp(time, 0, 1);
             lensLayer.intensity.value = Mathf.Lerp(minDistortion, minDistortion - maxDistortion, time);
 

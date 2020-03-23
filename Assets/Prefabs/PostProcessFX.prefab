@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplyFx: 0.001
+  reduceScreen: 0.001
   globalVolume: {fileID: 0}
 --- !u!114 &7038711676260883590
 MonoBehaviour:
@@ -169,7 +170,7 @@ MonoBehaviour:
   background: {fileID: 0}
   gradientState: 50
   fuckedColors: 100
-  multiplyColor: 0.01
+  multiplyColor: 0.05
   multiplyFX: 0.01
 --- !u!114 &4730776327269161799
 MonoBehaviour:
@@ -185,4 +186,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalVolume: {fileID: 0}
   fxSpeed: 0.8
-  maxDistortion: -0.5
+  maxDistortion: -0.4
