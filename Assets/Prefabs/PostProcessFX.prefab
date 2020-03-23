@@ -200,5 +200,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826abefcd4265e844810b0ea1830585c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplyDeform: 0.05
+  multiplyDeform: 0.02
   fxSpeedBumper: 2
