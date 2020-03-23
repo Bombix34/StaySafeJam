@@ -49,7 +49,6 @@ public class EatManager : MonoBehaviour
         eaten.GetComponent<MovementController>()?.ResetVelocity();
         Sequence animSequence = DOTween.Sequence();
         animSequence.Append(eater.transform.DOScale(finalScale, speedScale ).OnComplete(() => { eaten.SetActive(false); }));
-        SpawnerManager.Instance.CurrentCells.Remove(eaten);
         if(eater.CompareTag("Player"))
         {
             onPlayerEatCellEvent.Invoke();
