@@ -7,6 +7,7 @@ public class BackgroundFX : MonoBehaviour
     public GameObject background;
     public int gradientState = 5;
     public int fuckedColors = 10;
+    public float maxFuckedColors = 0.59f;
     public float multiplyColor = 2f;
     public float maxColor = 0.85f;
     public float multiplyFX = 0.05f;
@@ -44,6 +45,7 @@ public class BackgroundFX : MonoBehaviour
         if(material.GetInt("_Fuck") == 1)
         {
             colors += multiplyFX;
+            colors = Mathf.Clamp(colors, 0, maxFuckedColors);
             material.SetFloat("_FuckedUpColor", colors);
         }
     }
