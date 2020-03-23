@@ -96,20 +96,26 @@ Material:
     - ADDGRADIENT: 0
     - FUCKED: 0
     - FUCKEDUP: 0
+    - _ADDGRADIENT: 0
+    - _AddGradient: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DEFORM: 0
+    - _Deform: 0
     - _DeformIntensity: 0.5
     - _DeformOffset: 0.62
     - _DeformScale: 3.69
     - _DstBlend: 0
     - _EnableExternalAlpha: 0
     - _EnvironmentReflections: 1
+    - _FUCKED: 0
     - _FUCKEDUP: 0
+    - _Fuck: 0
     - _FuckedUp: 0
+    - _FuckedUpColor: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

@@ -7,16 +7,30 @@ using UnityEngine.Rendering.Universal;
 public class Distorsion : MonoBehaviour
 {
     public float multiplyFx = 0.05f;
+    public float reduceScreen = 0.001f;
     public GameObject globalVolume;
 
     Volume volume;
     LensDistortion distorsionLayer = null;
-    float baseValue;
+    GameObject player;
 
     public void Distortion()
     {
         volume = globalVolume.GetComponent<Volume>();
         volume.profile.TryGet(out distorsionLayer);
         distorsionLayer.intensity.value -= multiplyFx;
+        distorsionLayer.scale.value -= reduceScreen;
+    }
+
+    private void Update()
+    {
+        volume = globalVolume.GetComponent<Volume>();
+        volume.profile.TryGet(out distorsionLayer);
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        Vector2 playerScreenPos = Camera.main.WorldToScreenPoint(player.transform.position);
+        playerScreenPos.x = playerScreenPos.x / Screen.width;
+        playerScreenPos.y = playerScreenPos.y / Screen.height;
+        distorsionLayer.center.value = playerScreenPos;
     }
 }
