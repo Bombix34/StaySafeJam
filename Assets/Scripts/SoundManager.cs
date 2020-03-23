@@ -9,11 +9,6 @@ public class SoundManager : Singleton<SoundManager>
     public PitchVolumeAudio deathSound;                  //0
     public PitchVolumeAudio spawnSound;                 //1
     public PitchVolumeAudio eatSound;                   //2
-    public PitchVolumeAudio attractionCreate;            //3
-    public PitchVolumeAudio attractionDestroy;           //4
-    public PitchVolumeAudio birthPlanet;                //5
-    public PitchVolumeAudio birthStar;                   //6
-    public PitchVolumeAudio birthTrou;                  //7
 
     void Start()
     {
@@ -21,6 +16,12 @@ public class SoundManager : Singleton<SoundManager>
         {
             audiosources[i].loop = false;
         }
+        StartCoroutine(StartSound());
+    }
+
+    private IEnumerator StartSound()
+    {
+        yield return new WaitForSeconds(0.9f);
         PlaySound(1);
     }
 
@@ -36,21 +37,6 @@ public class SoundManager : Singleton<SoundManager>
                 break;
             case 2:
                 eatSound.Play(GetAudioSourceAvailable());
-                break;
-            case 3:
-                attractionCreate.Play(GetAudioSourceAvailable());
-                break;
-            case 4:
-                attractionDestroy.Play(GetAudioSourceAvailable());
-                break;
-            case 5:
-                birthPlanet.Play(GetAudioSourceAvailable());
-                break;
-            case 6:
-                birthStar.Play(GetAudioSourceAvailable());
-                break;
-            case 7:
-                birthTrou.Play(GetAudioSourceAvailable());
                 break;
         }
     }
