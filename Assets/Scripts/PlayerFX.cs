@@ -6,6 +6,7 @@ public class PlayerFX : MonoBehaviour
 {
     public float multiplyDeform = 0.01f;
     public float fxSpeedBumper = 1;
+    public float maxDeform = 0.75f;
 
     Material playerMat;
     float deformValue = 0;
@@ -23,6 +24,7 @@ public class PlayerFX : MonoBehaviour
     public void PlayerMatFX()
     {
         deformValue += multiplyDeform;
+        deformValue = Mathf.Clamp(deformValue, 0, maxDeform);
         playerMat.SetFloat("_DeformIntensity", deformValue);
 
         time = 0;
