@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gradientState: 50
-  fuckedColors: 100
+  gradientState: 40
+  fuckedColors: 70
   multiplyColor: 0.08
   maxColor: 0.85
   multiplyFX: 0.05
