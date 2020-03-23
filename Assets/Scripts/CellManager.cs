@@ -7,6 +7,7 @@ public class CellManager : MonoBehaviour
 {
     public float initSizeSpeed = 1f;
     public List<Sprite> spritesList;
+    public List<Material> materialsList;
     private CellType cellType;
 
     [SerializeField]
@@ -42,23 +43,28 @@ public class CellManager : MonoBehaviour
         {
             case CellType.neutral:
                 sprite.sprite = spritesList[0];
-                sprite.color = Color.white;
+                sprite.material = materialsList[0];
+                //sprite.color = Color.white;
                 break;
             case CellType.neutralGrow:
                 sprite.sprite = spritesList[1];
-                sprite.color = Color.grey;
+                sprite.material = materialsList[1];
+                //sprite.color = Color.grey;
                 break;
             case CellType.shrink:
                 sprite.sprite = spritesList[2];
-                sprite.color = new Color(0.6f, 0.1f, 0f);
+                sprite.material = materialsList[2];
+                //sprite.color = new Color(0.6f, 0.1f, 0f);
                 break;
             case CellType.sound:
                 sprite.sprite = spritesList[3];
-                sprite.color = new Color(0.8f, 0f, 0.4f);
+                sprite.material = materialsList[3];
+                //sprite.color = new Color(0.8f, 0f, 0.4f);
                 break;
             case CellType.visual:
                 sprite.sprite = spritesList[4];
-                sprite.color = new Color(0f, 0.2f, 0.8f);
+                sprite.material = materialsList[4];
+                //sprite.color = new Color(0f, 0.2f, 0.8f);
                 break;
         }
     }

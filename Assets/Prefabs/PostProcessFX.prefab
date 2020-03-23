@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2341660086804995882}
   - component: {fileID: 2330819289580650708}
   - component: {fileID: 827997972250485857}
+  - component: {fileID: 8037869803340929307}
   m_Layer: 0
   m_Name: PostProcessFX
   m_TagString: Untagged
@@ -152,3 +153,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplyFx: 0.1
   globalVolume: {fileID: 0}
+--- !u!114 &8037869803340929307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215658282703053720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5b690b003f58149acbc105c715985f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 0}
+  gradientState: 50
+  fuckedColors: 100
+  multiplyColor: 0.01
+  multiplyFX: 0.01
