@@ -40,40 +40,44 @@ public class CellManager : MonoBehaviour
     private void InitType()
     {
         cellType = (CellType)Random.Range(0, (int)CellType.size);
+        sprite.sprite = spritesList[Random.Range(0, spritesList.Count)];
+        CellRandom();
+        /*
         switch (cellType)
         {
             case CellType.neutral:
-                sprite.sprite = spritesList[0];
-                CellRandom(sprite);
+                sprite.sprite = spritesList[Random.Range(0,spritesList.Count)];
+                CellRandom();
                 break;
             case CellType.neutralGrow:
                 sprite.sprite = spritesList[1];
-                CellRandom(sprite);
+                CellRandom();
                 break;
             case CellType.shrink:
                 sprite.sprite = spritesList[2];
-                CellRandom(sprite);
+                CellRandom();
                 break;
             case CellType.sound:
                 sprite.sprite = spritesList[3];
-                CellRandom(sprite);
+                CellRandom();
                 break;
             case CellType.visual:
                 sprite.sprite = spritesList[4];
-                CellRandom(sprite);
+                CellRandom();
                 break;
         }
+        */
     }
 
-    void CellRandom(SpriteRenderer spriteCell)
+    void CellRandom()
     {
-        spriteCell.material = cellmat;
-        spriteCell.material.SetColor("_Color", colorsList[Random.Range(0, colorsList.Length)]);
-        spriteCell.material.SetFloat("_OpacityTextureFX02", Random.Range(0f, 1f));
-        spriteCell.material.SetFloat("_Tiling", Random.Range(0.1f, 0.3f));
-        spriteCell.material.SetInt("_Fuck", Random.Range(0, 2));
-        spriteCell.material.SetFloat("_FuckedUpColor", Random.Range(0f, 1f));
-        spriteCell.material.SetInt("_AddGradient", Random.Range(0, 2));
+        sprite.material = cellmat;
+        sprite.material.SetColor("_Color", colorsList[Random.Range(0, colorsList.Length)]);
+        sprite.material.SetFloat("_OpacityTextureFX02", Random.Range(0f, 1f));
+        sprite.material.SetFloat("_Tiling", Random.Range(0.1f, 0.3f));
+        sprite.material.SetInt("_Fuck", Random.Range(0, 2));
+        sprite.material.SetFloat("_FuckedUpColor", Random.Range(0f, 1f));
+        sprite.material.SetInt("_AddGradient", Random.Range(0, 2));
     }
 
     public void OnEat()
