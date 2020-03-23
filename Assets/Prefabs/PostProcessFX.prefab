@@ -187,5 +187,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplyDeform: 0.02
-  fxSpeedBumper: 2
+  fxSpeedBumper: 4
   maxDeform: 0.75
