@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplyFx: 0.005
-  reduceScreen: 0.005
+  reduceScreen: 0.0005
   globalVolume: {fileID: 0}
 --- !u!114 &7038711676260883590
 MonoBehaviour:
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91ebd7e93a34d14f9ec230a6fcdeabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplyFx: 0.5
+  multiplyFx: 1
   globalVolume: {fileID: 0}
 --- !u!114 &2330819289580650708
 MonoBehaviour:
@@ -171,8 +171,8 @@ MonoBehaviour:
   background: {fileID: 0}
   gradientState: 50
   fuckedColors: 100
-  multiplyColor: 0.05
-  multiplyFX: 0.01
+  multiplyColor: 0.08
+  multiplyFX: 0.05
 --- !u!114 &4730776327269161799
 MonoBehaviour:
   m_ObjectHideFlags: 0
