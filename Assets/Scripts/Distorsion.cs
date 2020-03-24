@@ -8,11 +8,15 @@ public class Distorsion : MonoBehaviour
 {
     public float multiplyFx = 0.05f;
     public float reduceScreen = 0.001f;
+    public float newStepDistorsion = -0.9f;
+    public float newStepSpeed = 0.5f;
     public GameObject globalVolume;
 
     Volume volume;
     LensDistortion distorsionLayer = null;
     GameObject player;
+    int nbrEat;
+    bool nextStep;
 
     private void Start()
     {
@@ -23,8 +27,16 @@ public class Distorsion : MonoBehaviour
 
     public void Distortion()
     {
-        distorsionLayer.intensity.value -= multiplyFx;
-        distorsionLayer.scale.value -= reduceScreen;
+        if(distorsionLayer.intensity.value > newStepDistorsion && !nextStep)
+        {
+            distorsionLayer.intensity.value -= multiplyFx;
+            distorsionLayer.scale.value -= reduceScreen;
+        }
+
+        else
+        {
+            nextStep = true;
+        }
     }
 
     private void Update()
@@ -33,5 +45,10 @@ public class Distorsion : MonoBehaviour
         playerScreenPos.x = playerScreenPos.x / Screen.width;
         playerScreenPos.y = playerScreenPos.y / Screen.height;
         distorsionLayer.center.value = playerScreenPos;
+
+        if (nextStep)
+        {
+            distorsionLayer.intensity.value = Mathf.Lerp(newStepDistorsion, Mathf.Abs(newStepDistorsion), Mathf.PingPong(Time.time * newStepSpeed, 1));
+        }
     }
 }
