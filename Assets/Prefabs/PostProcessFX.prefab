@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplyFx: 0.01
   reduceScreen: 0.002
-  newStepDistorsion: -0.9
+  newStepDistorsion: -0.8
   newStepSpeed: 1
   globalVolume: {fileID: 0}
 --- !u!114 &7038711676260883590
