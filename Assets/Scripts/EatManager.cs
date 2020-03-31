@@ -11,6 +11,7 @@ public class EatManager : MonoBehaviour
 
     public UnityEvent onPlayerEatCellEvent;
 
+
     public int EatenNumber { get; set; } = 0;
 
     private void Start()

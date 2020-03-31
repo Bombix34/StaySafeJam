@@ -42,6 +42,7 @@ public class MovementController : MonoBehaviour
         {
             isFirstClick = true;
             SpawnerManager.Instance.CanSpawn = true;
+            IntroUI.Instance.LaunchIntroUI();
             MusicManager.Instance.LaunchMusic();
         }
     }
